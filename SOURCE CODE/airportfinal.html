@@ -1,0 +1,969 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title color="#3c64a6">AIRPORT Employees</title>
+      <link rel="stylesheet" type="text/css" href="style.css">
+      <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+
+
+
+  </head>
+  <body>
+
+
+    <header>
+  <h1 style="color: #3c64a6; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: 36px">AIRPORT SECURITY DATABASE SYSTEM</h1>
+  <nav>
+    <ul>
+      <li><a href="#section1">INSERT</a></li>
+      <li><a href="#section2">UPDATE</a></li>
+      <li><a href="#section3">DELETE</a></li>
+      <li><a href="#section4">CHECK</a></li>
+      <li><a href="#section5">DISPLAY</a></li>
+      <li><a href="#section6">COUNT</a></li>
+    </ul>
+  </nav>
+</header>
+
+    <div class="container">
+
+
+      <!-- First form -->
+    <h2 id="section1">Insert Passengers Details</h2>
+    <script>
+      function showPopup() {
+        alert("Data added successfully!");
+      }
+      function toggleForm(passengersForm) {
+        var form = document.getElementById(passengersForm);
+        if (form.style.display === "none") {
+          form.style.display = "block";
+        } else {
+          form.style.display = "none";
+        }
+      }
+    </script>
+    <button onclick="toggleForm('form1')">Insert Passengers Details</button>
+    <div id="form1" style="display: none;">
+      <form action="insertpassengers" method="post" id="passengersForm">
+        <label for="Aadhaar">Aadhaar Number:</label>
+        <input type="text" id="Aadhaar" name="Aadhaar" placeholder="Enter 12 digit aadhaar no. "><br><br>
+
+        <label for="Passport">Passport number:</label>
+        <input type="text" id="Passport" name="Passport" placeholder="Enter 15 digit no."><br><br>
+
+        <label for="PName">Passenger name:</label>
+        <input type="text" id="PName" name="PName"><br><br>
+
+        <label for="PNRNo">PNR number:</label>
+        <input type="text" id="PNRNo" name="PNRNo" placeholder="Enter a 6 digit no."><br><br>
+
+        <button type="submit" onclick="showPopup('passengersForm'); toggleForm('form1')">Submit</button>
+      </form>
+    </div>
+
+
+    <h2>Insert Flights Details</h2>
+    <script>
+      function showPopup() {
+        alert("Data added successfully!");
+      }
+      function toggleForm(flightsForm) {
+        var form = document.getElementById(flightsForm);
+        if (form.style.display === "none") {
+          form.style.display = "block";
+        } else {
+          form.style.display = "none";
+        }
+      }
+    </script>
+    <button onclick="toggleForm('form2')">Insert Flights Details</button>
+    <div id="form2" style="display: none;">
+      <form action="insertflightdetails" method="post" id="flightsForm">
+        <label for="FlightNo">Flight Number :</label>
+        <input type="text" id="FlightNo" name="FlightNo" placeholder="Enter 7 digit no."><br><br>
+        <label for="DOF">Date of flight :</label>
+        <input type="date" id="DOF" name="DOF"><br><br>
+        <label for="Depart_time">Departure time :</label>
+        <input type="time" id="Depart_time" name="Depart_time"><br><br>
+        <label for="Arrival_time">Arrival time :</label>
+        <input type="time" id="Arrival_time" name="Arrival_time"><br><br>
+        <label for="Depart_gate">Depart_gate :</label>
+        <input type="text" id="Depart_gate" name="Depart_gate"><br><br>
+        <label for="Current_status">Current status :</label>
+        <input type="text" id="Current_status" name="Current_status"><br><br>
+        <label for="Baggage_Belt">Baggage belt :</label>
+        <input type="text" id="Baggage_Belt" name="Baggage_Belt"><br><br>
+        <button type="submit" onclick="showPopup();toggleForm('form2')">Submit</button>
+      </form>
+    </div>
+
+
+    <!-- third form -->
+          <h2>Insert passenger contact</h2>
+          <script>
+          function showPopup(formId) {
+          alert("Data added successfully!");
+          toggleForm(formId);
+          }
+          function toggleForm(passengersForm2) {
+          var form = document.getElementById(passengersForm2);
+          if (form.style.display === "none") {
+          form.style.display = "block";
+          } else {
+          form.style.display = "none";
+          }
+          }
+          </script>
+          <button onclick="toggleForm('form3')">Insert passenger contact</button>
+          <div id="form3" style="display: none;">
+          <form action="insertpcontact" method="post" id="passengersForm2">
+          <label for="Aadhaar">Aadhaar Number:</label>
+          <input type="text" id="Aadhaar" name="Aadhaar" placeholder="Enter 12 digit aadhaar no. "><br><br>
+
+          <label for="Passport">Passport number:</label>
+          <input type="text" id="Passport" name="Passport" placeholder="Enter 15 digit no."><br><br>
+
+          <label for="PhNo">Phone NUM:</label>
+          <input type="text" id="PhNo" name="PhNo" placeholder="Enter 10 digit no."><br><br>
+
+          <button type="submit" onclick="showPopup('passengersForm2')">Submit</button>
+          </form>
+</div>
+
+
+
+          <!-- fourth form -->
+          <h2>Insert new plane details</h2>
+          <script>
+              function showPopup() {
+                alert("Data added successfully!");
+              }
+            </script>
+          <button onclick="document.getElementById('form4').style.display='block'">Insert new plane details</button>
+          <div id="form4" style="display: none;">
+          <form action="insertflights" method="post" id="planeForm">
+            <label for="FlightNo">Flight Number :</label>
+            <input type="text" id="FlightNo" name="FlightNo" placeholder="Enter 7 digit no."><br><br>
+
+            <label for="Carrier">Carrier :</label>
+            <input type="text" id="Carrier" name="Carrier"><br><br>
+
+            <label for="Source">Source :</label>
+            <input type="text" id="Source" name="Source"><br><br>
+
+            <label for="Destination">Destination :</label>
+            <input type="text" id="Destination" name="Destinatio"><br><br>
+
+          <button type="submit" onclick="showPopup('planeForm')">Submit</button>
+                          </form>
+          </div>
+          <script>
+            function toggleForm(planeForm) {
+              var form = document.getElementById(planeForm);
+              if (form.style.display === "none") {
+                form.style.display = "block";
+              } else {
+                form.style.display = "none";
+              }
+            }
+          </script>
+
+          <!-- fifth form -->
+          <h2>Insert new blacklist passenger</h2>
+          <script>
+              function showPopup() {
+                alert("Data added successfully!");
+              }
+            </script>
+          <button onclick="document.getElementById('form5').style.display='block'">Insert new blacklist passenger</button>
+          <div id="form5" style="display: none;">
+          <form action="insertblacklist" method="post" id="blacklistForm">
+            <label for="Aadhaar">Aadhaar Number:</label>
+            <input type="text" id="Aadhaar" name="Aadhaar" placeholder="Enter 12 digit aadhaar no. "><br><br>
+
+            <label for="Passport">Passport number:</label>
+            <input type="text" id="Passport" name="Passport" placeholder="Enter 15 digit no."><br><br>
+
+            <label for="Country">Country :</label>
+            <input type="text" id="Country" name="Country"><br><br>
+
+            <label for="DOBlack">Date of blacklisting :</label>
+            <input type="date" id="DOBlock" name="DOBlock"><br><br>
+
+          <button type="submit" onclick="showPopup('blacklistForm')">Submit</button>
+                          </form>
+          </div>
+          <script>
+            function toggleForm(blacklistForm) {
+              var form = document.getElementById(blacklistForm);
+              if (form.style.display === "none") {
+                form.style.display = "block";
+              } else {
+                form.style.display = "none";
+              }
+            }
+          </script>
+
+          <!-- sixth form -->
+          <h2>Insert new visa</h2>
+          <script>
+              function showPopup() {
+                alert("Data added successfully!");
+              }
+            </script>
+          <button onclick="document.getElementById('form6').style.display='block'">Insert new visa</button>
+          <div id="form6" style="display: none;">
+          <form action="insertvisa" method="post" id="visaForm">
+            <label for="VID">VID:</label>
+            <input type="text" id="VID" name="VID"><br><br>
+
+            <label for="Country">Country :</label>
+            <input type="text" id="Country" name="Country"><br><br>
+
+            <label for="DOE">DOE :</label>
+            <input type="date" id="DOE" name="DOE"><br><br>
+
+            <label for="Aadhaar">Aadhar Number:</label>
+            <input type="text" id="Aadhaar" name="Aadhaar" placeholder="Enter 12 digit aadhaar no. "><br><br>
+
+            <label for="Passport">Passport number:</label>
+            <input type="text" id="Passport" name="Passport" placeholder="Enter 15 digit no."><br><br>
+
+
+          <button type="submit" onclick="showPopup('visaForm')">Submit</button>
+                          </form>
+          </div>
+          <script>
+            function toggleForm(visaForm) {
+              var form = document.getElementById(visaForm);
+              if (form.style.display === "none") {
+                form.style.display = "block";
+              } else {
+                form.style.display = "none";
+              }
+            }
+          </script>
+
+          <!-- seventh form -->
+          <h2>Insert new employee</h2>
+          <script>
+              function showPopup() {
+                alert("Data added successfully!");
+              }
+            </script>
+          <button onclick="document.getElementById('form7').style.display='block'">Insert new employee</button>
+          <div id="form7" style="display: none;">
+          <form action="insertemp" method="post" id="employeeForm1">
+            <label for="EID">EID:</label>
+            <input type="number" id="EID" name="EID" placeholder="Enter 5 digit no."><br><br>
+
+            <label for="EName">EName :</label>
+            <input type="text" id="EName" name="EName"><br><br>
+
+            <label for="Job">Job :</label>
+            <input type="text" id="Job" name="Job"><br><br>
+
+            <label for="DOJ">DOJ:</label>
+            <input type="date" id="DOJ" name="DOJ"><br><br>
+
+            <label for="On_Off">ON/OFFr:</label>
+            <input type="text" id="On_Off" name="On_Off"><br><br>
+
+            <label for="Dom_Inter">Dom/Inter:</label>
+            <input type="text" id="Dom_Inter" name="Dom_Inter"><br><br>
+
+          <button type="submit" onclick="showPopup('employeeForm1')">Submit</button>
+                          </form>
+          </div>
+          <script>
+            function toggleForm(employeeForm1) {
+              var form = document.getElementById(employeeForm1);
+              if (form.style.display === "none") {
+                form.style.display = "block";
+              } else {
+                form.style.display = "none";
+              }
+            }
+          </script>
+
+          <!-- eighth form -->
+          <h2>Insert new employee contact</h2>
+          <script>
+              function showPopup() {
+                alert("Data added successfully!");
+              }
+            </script>
+          <button onclick="document.getElementById('form8').style.display='block'">Insert new employee contact</button>
+          <div id="form8" style="display: none;">
+          <form action="insertecontact" method="post" id="employeeForm2">
+            <label for="EID">EID:</label>
+            <input type="number" id="EID" name="EID" placeholder="Enter 5 digit no."><br><br>
+
+            <label for="PhNo">Phone number :</label>
+            <input type="number" id="PhNo" name="PhNo"><br><br>
+
+
+          <button type="submit" onclick="showPopup('employeeForm2')">Submit</button>
+                          </form>
+          </div>
+          <script>
+            function toggleForm(employeeForm2) {
+              var form = document.getElementById(employeeForm2);
+              if (form.style.display === "none") {
+                form.style.display = "block";
+              } else {
+                form.style.display = "none";
+              }
+            }
+          </script>
+
+          <!-- ninth form -->
+          <h2 id="section2">Update employee name</h2>
+          <script>
+          		function showPopup() {
+          			alert("Data updated successfully!");
+          		}
+          	</script>
+          <button onclick="document.getElementById('form9').style.display='block'">Update employee name</button>
+          <div id="form9" style="display: none;">
+          <form action="updateempname" method="post" id="employeeNameUpdateForm">
+            <label for="EID">EID :</label>
+            <input type="text" id="EID" name="EID"><br><br>
+            <label for="EName">New EName :</label>
+            <input type="text" id="EName" name="EName"><br><br>
+
+          <button type="submit" onclick="showPopup('employeeNameUpdateForm')">Submit</button>
+                          </form>
+          </div>
+          <script>
+            function toggleForm(employeeNameUpdateForm) {
+              var form = document.getElementById(employeeNameUpdateForm);
+              if (form.style.display === "none") {
+                form.style.display = "block";
+              } else {
+                form.style.display = "none";
+              }
+            }
+          </script>
+
+          <!-- tenth form -->
+          <h2>Update employee job</h2>
+          <script>
+          		function showPopup() {
+          			alert("Data updated successfully!");
+          		}
+          	</script>
+          <button onclick="document.getElementById('form10').style.display='block'">Update employee job</button>
+          <div id="form10" style="display: none;">
+          <form action="updateempjob" method="post" id="employeeJobUpdateForm">
+            <label for="EID">EID :</label>
+            <input type="text" id="EID" name="EID"><br><br>
+            <label for="Job">new employee Job :</label>
+            <input type="text" id="Job" name="Job"><br><br>
+
+          <button type="submit" onclick="showPopup('employeeJobUpdateForm')">Submit</button>
+                          </form>
+          </div>
+          <script>
+            function toggleForm(employeeJobUpdateForm) {
+              var form = document.getElementById(employeeJobUpdateForm);
+              if (form.style.display === "none") {
+                form.style.display = "block";
+              } else {
+                form.style.display = "none";
+              }
+            }
+          </script>
+
+          <!-- 11.update in passengers aadhaar-->
+	<h2>Update passengers Aadhaar Details</h2>
+  <script>
+  		function showPopup() {
+  			alert("Data updated successfully!");
+  		}
+  	</script>
+	<button onclick="document.getElementById('form11').style.display='block'">Update passengers Aadhaar Details</button>
+	<div id="form11" style="display: none;">
+		<form action="updatepassadhaar" method="post" id="employeeAadhaarUpdateForm">
+
+
+		  <label for="Aadhaar"> New Aadhaar Number:</label>
+      <input type="text" id="Aadhaar" name="Aadhaar" placeholder="Enter 12 digit aadhaar no. "><br><br>
+
+      <label for="PNRNo">PNR number:</label>
+      <input type="text" id="PNRNo" name="PNRNo" placeholder="Enter a 6 digit no."><br><br>
+
+      <button type="submit" onclick="showPopup()">Submit</button>
+
+
+		</form>
+  </div>
+
+  <script>
+    function toggleForm(employeeAadhaarUpdateForm) {
+      var form = document.getElementById(employeeAadhaarUpdateForm);
+      if (form.style.display === "none") {
+        form.style.display = "block";
+      } else {
+        form.style.display = "none";
+      }
+    }
+  </script>
+
+          <!-- 12.update in passengers passpport-->
+        <h2>Update passengers Passport Details</h2>
+        <script>
+            function showPopup() {
+              alert("Data updated successfully!");
+            }
+          </script>
+        <button onclick="document.getElementById('form12').style.display='block'">Update passengers Passport Details</button>
+        <div id="form12" style="display: none;">
+        <form action="updatepasspassport" method="post" id="employeePassportUpdateForm">
+
+
+        <label for="Passport"> New Passport Number:</label>
+        <input type="text" id="Passport" name="Passport" placeholder="Enter 15 digit no."><br><br>
+
+        <label for="PNRNo">PNR number:</label>
+        <input type="text" id="PNRNo" name="PNRNo" placeholder="Enter a 6 digit no."><br><br>
+
+        <button type="submit" onclick="showPopup()">Submit</button>
+
+
+        </form>
+        </div>
+        <script>
+          function toggleForm(employeePassportUpdateForm) {
+            var form = document.getElementById(employeePassportUpdateForm);
+            if (form.style.display === "none") {
+              form.style.display = "block";
+            } else {
+              form.style.display = "none";
+            }
+          }
+        </script>
+
+        <!-- 13. update flight time-->
+      <h2>Update flight time </h2>
+      <script>
+        function showPopup() {
+          alert("Data updated successfully!");
+        }
+        function toggleForm(formId) {
+          var form = document.getElementById(formId);
+          if (form.style.display === "none") {
+            form.style.display = "block";
+          } else {
+            form.style.display = "none";
+          }
+        }
+      </script>
+      <button onclick="toggleForm('form13')">Update flight time</button>
+      <div id="form13" style="display: none;">
+        <form action="updateflighttime" method="post" id="updateFlightTimeForm">
+          <label for="FlightNo">Flight Number :</label>
+          <input type="text" id="FlightNo" name="FlightNo" placeholder="Enter 7 digit no."><br><br>
+
+          <label for="DOF">Date of flight :</label>
+          <input type="date" id="DOF" name="DOF"><br><br>
+
+          <label for="Depart_time">New Departure time :</label>
+          <input type="time" id="Depart_time" name="Depart_time"><br><br>
+
+          <label for="Arrival_time">New Arrival time :</label>
+          <input type="time" id="Arrival_time" name="Arrival_time"><br><br>
+          <button type="submit" onclick="showPopup()">Submit</button>
+        </form>
+      </div>
+
+
+
+      <!-- 14. update flight status-->
+      <h2>Update flight status </h2>
+    <script>
+      function showPopup() {
+        alert("Data updated successfully!");
+      }
+      function toggleForm(formId) {
+        var form = document.getElementById(formId);
+        if (form.style.display === "none") {
+          form.style.display = "block";
+        } else {
+          form.style.display = "none";
+        }
+      }
+    </script>
+    <button onclick="toggleForm('form14')">Update flight current status</button>
+    <div id="form14" style="display: none;">
+      <form action="updateflightstatus" method="post" id="updateFlightStatusForm">
+        <label for="FlightNo">Flight Number :</label>
+        <input type="text" id="FlightNo" name="FlightNo" placeholder="Enter 7 digit no."><br><br>
+
+        <label for="DOF">Date of flight :</label>
+        <input type="date" id="DOF" name="DOF"><br><br>
+
+        <label for="Current_status">Updated Current status :</label>
+        <input type="text" id="Current_status" name="Current_status"><br><br>
+
+        <button type="submit" onclick="showPopup()">Submit</button>
+      </form>
+    </div>
+
+
+  <!-- 15. update flight status-->
+
+    <h2>Update employee working status</h2>
+
+<button onclick="toggleForm('form15')">Update employee working status</button>
+
+<div id="form15" style="display: none;">
+  <form action="updateempworkstatus" method="post" id="updateEmployeeStatusForm">
+
+    <label for="EID">EID:</label>
+    <input type="text" id="EID" name="EID"><br><br>
+
+    <label for="On_Off">Enter emp status on/ off guard:</label>
+    <input type="text" id="On_Off" name="On_Off"><br><br>
+
+    <button type="submit">Submit</button>
+  </form>
+</div>
+
+<script>
+  function toggleForm(updateEmployeeStatusForm) {
+    var form = document.getElementById(updateEmployeeStatusForm);
+    if (form.style.display === "none") {
+      form.style.display = "block";
+    } else {
+      form.style.display = "none";
+    }
+  }
+</script>
+
+
+
+
+
+  <!-- 16. Delete an employee-->
+        <h2 id="section3">Delete an employee </h2>
+      <script>
+        function showPopup() {
+          alert("Data updated successfully!");
+        }
+        function toggleForm(formId) {
+          var form = document.getElementById(formId);
+          if (form.style.display === "none") {
+            form.style.display = "block";
+          } else {
+            form.style.display = "none";
+          }
+        }
+      </script>
+      <button onclick="toggleForm('form16')">Delete an employee</button>
+      <div id="form16" style="display: none;">
+        <form action="deleteemp" method="post" id="deleteEmployeeForm">
+          <label for="EID">EID :</label>
+          <input type="text" id="EID" name="EID"><br><br>
+
+          <button type="submit" onclick="showPopup()">Submit</button>
+        </form>
+      </div>
+
+      <!-- 16. Delete a passenger-->
+            <h2>Delete a passenger </h2>
+          <script>
+            function showPopup() {
+              alert("Data updated successfully!");
+            }
+            function toggleForm(formId) {
+              var form = document.getElementById(formId);
+              if (form.style.display === "none") {
+                form.style.display = "block";
+              } else {
+                form.style.display = "none";
+              }
+            }
+          </script>
+          <button onclick="toggleForm('form17')">Delete a passenger</button>
+          <div id="form17" style="display: none;">
+            <form action="deletepass" method="post" id="deletePassengerForm">
+              <label for="PNRNo">PNR number:</label>
+              <input type="text" id="PNRNo" name="PNRNo" placeholder="Enter a 6 digit no."><br><br>
+
+              <button type="submit" onclick="showPopup()">Submit</button>
+            </form>
+          </div>
+
+          <!-- 16. Delete a flight-->
+                <h2>Delete a flight </h2>
+              <script>
+                function showPopup() {
+                  alert("Data updated successfully!");
+                }
+                function toggleForm(formId) {
+                  var form = document.getElementById(formId);
+                  if (form.style.display === "none") {
+                    form.style.display = "block";
+                  } else {
+                    form.style.display = "none";
+                  }
+                }
+              </script>
+              <button onclick="toggleForm('form18')">Delete a flight</button>
+              <div id="form18" style="display: none;">
+                <form action="deleteflight" method="post" id="deleteFlightForm">
+                  <label for="FlightNo">Flight Number :</label>
+                  <input type="text" id="FlightNo" name="FlightNo" placeholder="Enter 7 digit no."><br><br>
+                  <label for="DOF">Date of flight :</label>
+                  <input type="date" id="DOF" name="DOF"><br><br>
+
+                  <button type="submit" onclick="showPopup()">Submit</button>
+                </form>
+              </div>
+
+              <!-- 16. Delete a blacklist-->
+                    <h2>Delete a blacklisted passenger </h2>
+                  <script>
+                    function showPopup() {
+                      alert("Data updated successfully!");
+                    }
+                    function toggleForm(formId) {
+                      var form = document.getElementById(formId);
+                      if (form.style.display === "none") {
+                        form.style.display = "block";
+                      } else {
+                        form.style.display = "none";
+                      }
+                    }
+                  </script>
+                  <button onclick="toggleForm('form19')">Delete a blacklisted passenger</button>
+                  <div id="form19" style="display: none;">
+                    <form action="deleteblacklist" method="post" id="deleteBlacklistForm">
+                      <label for="Aadhaar">Aadhaar Number:</label>
+                      <input type="text" id="Aadhaar" name="Aadhaar"><br><br>
+
+                      <label for="Passport">Passport number:</label>
+                      <input type="text" id="Passport" name="Passport" placeholder="Enter 15 digit no."><br><br>
+
+                      <button type="submit" onclick="showPopup()">Submit</button>
+                    </form>
+                  </div>
+
+                  <!-- 17. Check if passenger is blacklisted or not -->
+                        <h2 id="section4">Check if passenger is blacklisted or not</h2>
+                      <script>
+                        function toggleForm(formId) {
+                          var form = document.getElementById(formId);
+                          if (form.style.display === "none") {
+                            form.style.display = "block";
+                          } else {
+                            form.style.display = "none";
+                          }
+                        }
+                      </script>
+                      <button onclick="toggleForm('form20')">Check if passenger is blacklisted or not</button></button>
+                      <div id="form20" style="display: none;">
+                        <form action="check1" method="post" id="checkBlacklistForm">
+                          <!-- <label for="Aadhaar">Aadhaar Number:</label>
+                          <input type="text" id="Aadhaar" name="Aadhaar"><br><br>
+
+                          <label for="Passport">Passport number:</label>
+                          <input type="text" id="Passport" name="Passport" placeholder="Enter 15 digit no."><br><br> -->
+
+                          <button type="check" onclick="">Check</button>
+                        </form>
+                      </div>
+
+                      <!-- 18. check if an international passenger has that country's visa -->
+                            <h2>check if an international passenger has that country's visa</h2>
+                          <script>
+                            function toggleForm(formId) {
+                              var form = document.getElementById(formId);
+                              if (form.style.display === "none") {
+                                form.style.display = "block";
+                              } else {
+                                form.style.display = "none";
+                              }
+                            }
+                          </script>
+                          <button onclick="toggleForm('form21')">Check if an international passenger has that country's visa</button></button>
+                          <div id="form21" style="display: none;">
+                            <form action="check2" method="post" id="checkVisaForm">
+
+                              <label for="Aadhar">Aadhar Number:</label>
+                              <input type="number" id="Aadhaar" name="Aadhar"><br><br>
+
+                              <label for="Passport">Passport number:</label>
+                              <input type="text" id="Passport" name="Passport" placeholder="Enter 15 digit no."><br><br>
+
+                              <label for="Country">Country :</label>
+                              <input type="text" id="Country" name="Country"><br><br>
+
+                              <button type="check" onclick="">Check</button>
+                            </form>
+                          </div>
+
+                      <!--     19. check if an employee is a Domestic one or an international one
+                                <h2>check if an employee is a Domestic one or an international one</h2>
+                              <script>
+                                function toggleForm(formId) {
+                                  var form = document.getElementById(formId);
+                                  if (form.style.display === "none") {
+                                    form.style.display = "block";
+                                  } else {
+                                    form.style.display = "none";
+                                  }
+                                }
+                              </script>
+                              <button onclick="toggleForm('form22')">check if an employee is a Domestic one or an international one</button></button>
+                              <div id="form22" style="display: none;">
+                                <form action="check3" method="post" id="checkForm">
+                                  <label for="EID">EID:</label>
+                                  <input type="number" id="EID" name="EID" placeholder="Enter 5 digit no."><br><br>
+
+
+                                  <button type="check" onclick="">Check</button>
+                                </form>
+                              </div>
+
+
+                                                         20. check for an employee's working status
+                                                              <h2>check for an employee's working status</h2>
+                                                            <script>
+                                                              function toggleForm(formId) {
+                                                                var form = document.getElementById(formId);
+                                                                if (form.style.display === "none") {
+                                                                  form.style.display = "block";
+                                                                } else {
+                                                                  form.style.display = "none";
+                                                                }
+                                                              }
+                                                            </script>
+                                                            <button onclick="toggleForm('form23')">check for an employee's working status</button></button>
+                                                            <div id="form23" style="display: none;">
+                                                              <form action="check4" method="post" id="checkEmployeeStatusForm">
+                                                                <label for="EID">EID:</label>
+                                                                <input type="number" id="EID" name="EID" placeholder="Enter 5 digit no."><br><br>
+
+
+                                                                <button type="check" onclick="">Check</button>
+                                                              </form>
+                                                            </div>
+
+
+                                                            <21. check for an employee's security check-
+                                                                  <h2>check for an employee's security check</h2>
+                                                                <script>
+                                                                  function toggleForm(formId) {
+                                                                    var form = document.getElementById(formId);
+                                                                    if (form.style.display === "none") {
+                                                                      form.style.display = "block";
+                                                                    } else {
+                                                                      form.style.display = "none";
+                                                                    }
+                                                                  }
+                                                                </script>
+                                                                <button onclick="toggleForm('form24')">check for an employee's security check</button></button>
+                                                                <div id="form24" style="display: none;">
+                                                                  <form action="check5" method="post" id="checkEmployeeSecurityForm">
+                                                                    <label for="EID">EID:</label>
+                                                                    <input type="number" id="EID" name="EID" placeholder="Enter 5 digit no."><br><br>
+
+
+                                                                    <button type="check" onclick="">Check</button>
+                                                                  </form>
+                                                                </div>
+
+
+                                                                 22. check for a flight's status
+                                                                      <h2>Check for a flight's status</h2>
+                                                                    <script>
+                                                                      function toggleForm(formId) {
+                                                                        var form = document.getElementById(formId);
+                                                                        if (form.style.display === "none") {
+                                                                          form.style.display = "block";
+                                                                        } else {
+                                                                          form.style.display = "none";
+                                                                        }
+                                                                      }
+                                                                    </script>
+                                                                    <button onclick="toggleForm('form25')">check for a flight's status</button></button>
+                                                                    <div id="form25" style="display: none;">
+                                                                      <form action="check6" method="post" id="checkFlightStatusForm">
+                                                                        <label for="FlightNo">Flight Number :</label>
+                                                                        <input type="number" id="FlightNo" name="FlightNo"><br><br>
+                                                                        <label for="DOF">Date of flight :</label>
+                                                                        <input type="date" id="DOF" name="DOF"><br><br>
+
+                                                                        <button type="check" onclick="">Check</button>
+                                                                      </form>
+                                                                    </div>
+-->
+                                                                    <!-- 23. Display all employees -->
+                                                                            <h2 id="section5">Display all employees</h2>
+                                                                          <script>
+                                                                            function toggleForm(formId) {
+                                                                              var form = document.getElementById(formId);
+                                                                              if (form.style.display === "none") {
+                                                                                form.style.display = "block";
+                                                                              } else {
+                                                                                form.style.display = "none";
+                                                                              }
+                                                                            }
+                                                                          </script>
+                                                                          <button onclick="toggleForm('form26')">Display all employees</button></button>
+                                                                          <div id="form26" style="display: none;">
+
+                                                                              <form action="displayemp" method="post" id="display1">
+                                                                               <input type="submit" value="Get all employee record">
+                                                                              </form>
+                                                                            </div>
+                                                                              <!-- 24. Display all flights -->
+                                                                                      <h2>Display all flights</h2>
+                                                                                    <script>
+                                                                                      function toggleForm(formId) {
+                                                                                        var form = document.getElementById(formId);
+                                                                                        if (form.style.display === "none") {
+                                                                                          form.style.display = "block";
+                                                                                        } else {
+                                                                                          form.style.display = "none";
+                                                                                        }
+                                                                                      }
+                                                                                    </script>
+                                                                                    <button onclick="toggleForm('form27')">Display all flights</button></button>
+                                                                                    <div id="form27" style="display: none;">
+
+                                                                                        <form action="displayflights" method="post" id="display2">
+                                                                                         <input type="submit" value="Get all flight record">
+                                                                                       </form></div>
+
+                                                                                        <!-- 25. Display all blacklists -->
+                                                                                                <h2>Display all blacklists</h2>
+                                                                                              <script>
+                                                                                                function toggleForm(formId) {
+                                                                                                  var form = document.getElementById(formId);
+                                                                                                  if (form.style.display === "none") {
+                                                                                                    form.style.display = "block";
+                                                                                                  } else {
+                                                                                                    form.style.display = "none";
+                                                                                                  }
+                                                                                                }
+                                                                                              </script>
+                                                                                              <button onclick="toggleForm('form28')">Display all blacklists</button>
+                                                                                              <div id="form28" style="display: none;">
+
+                                                                                                  <form action="displayblacklist" method="post" id="display2">
+                                                                                                   <input type="submit" value="Get all blacklist record">
+                                                                                                  </form>
+                                                                                                </div>
+                                                                                                <!-- 26. Display all visas -->
+                                                                                                        <h2>Display all visas</h2>
+                                                                                                      <script>
+                                                                                                        function toggleForm(formId) {
+                                                                                                          var form = document.getElementById(formId);
+                                                                                                          if (form.style.display === "none") {
+                                                                                                            form.style.display = "block";
+                                                                                                          } else {
+                                                                                                            form.style.display = "none";
+                                                                                                          }
+                                                                                                        }
+                                                                                                      </script>
+                                                                                                      <button onclick="toggleForm('form29')">Display all visas</button>
+                                                                                                      <div id="form29" style="display: none;">
+
+                                                                                                          <form action="displayvisas" method="post" id="display2">
+                                                                                                           <input type="submit" value="Get all visa record">
+                                                                                                          </form>
+                                                                                                        </div>
+                                                                                                        <!-- 27. Display all passengers -->
+                                                                                                                <h2>Display all passengers</h2>
+                                                                                                              <script>
+                                                                                                                function toggleForm(formId) {
+                                                                                                                  var form = document.getElementById(formId);
+                                                                                                                  if (form.style.display === "none") {
+                                                                                                                    form.style.display = "block";
+                                                                                                                  } else {
+                                                                                                                    form.style.display = "none";
+                                                                                                                  }
+                                                                                                                }
+                                                                                                              </script>
+                                                                                                              <button onclick="toggleForm('form30')">Display all passengers</button>
+                                                                                                              <div id="form30" style="display: none;">
+
+                                                                                                                  <form action="displaypass" method="post" id="display2">
+                                                                                                                   <input type="submit" value="Get all passenger record">
+                                                                                                                  </form>
+                                                                                                                </div>
+
+                                                                                                                <!-- 28.Count number of airport employees -->
+
+                                                                                                                        <h2 id="section6">Count number of airport employees</h2>
+                                                                                                                      <script>
+                                                                                                                        function toggleForm(formId) {
+                                                                                                                          var form = document.getElementById(formId);
+                                                                                                                          if (form.style.display === "none") {
+                                                                                                                            form.style.display = "block";
+                                                                                                                          } else {
+                                                                                                                            form.style.display = "none";
+                                                                                                                          }
+                                                                                                                        }
+                                                                                                                      </script>
+                                                                                                                      <button onclick="toggleForm('form31')">Count number of airport employees</button>
+                                                                                                                      <div id="form31" style="display: none;">
+
+                                                                                                                          <form action="countAirport" method="post" id="count1">
+                                                                                                                           <input type="submit" value="Get count">
+                                                                                                                          </form>
+                                                                                                                        </div>
+
+
+
+
+                                                                                                                        <!-- 29.Count number of onboard employees -->
+                                                                                                                                <h2>Count number of onboard employees</h2>
+                                                                                                                              <script>
+                                                                                                                                function toggleForm(formId) {
+                                                                                                                                  var form = document.getElementById(formId);
+                                                                                                                                  if (form.style.display === "none") {
+                                                                                                                                    form.style.display = "block";
+                                                                                                                                  } else {
+                                                                                                                                    form.style.display = "none";
+                                                                                                                                  }
+                                                                                                                                }
+                                                                                                                              </script>
+                                                                                                                              <button onclick="toggleForm('form32')">Count number of onboard employees</button>
+                                                                                                                              <div id="form32" style="display: none;">
+
+                                                                                                                                  <form action="countOnboard" method="post" id="count2">
+                                                                                                                                   <input type="submit" value="Get count">
+                                                                                                                                  </form>
+                                                                                                                                </div>
+
+                                                                                                                                <!-- 30.Count number of domestic and international passengers -->
+                                                                                                                                        <h2>Count number of domestic and international passengers</h2>
+                                                                                                                                      <script>
+                                                                                                                                        function toggleForm(formId) {
+                                                                                                                                          var form = document.getElementById(formId);
+                                                                                                                                          if (form.style.display === "none") {
+                                                                                                                                            form.style.display = "block";
+                                                                                                                                          } else {
+                                                                                                                                            form.style.display = "none";
+                                                                                                                                          }
+                                                                                                                                        }
+                                                                                                                                      </script>
+                                                                                                                                      <button onclick="toggleForm('form33')">Count number of dominter employees</button>
+                                                                                                                                      <div id="form33" style="display: none;">
+
+                                                                                                                                          <form action="countDomInter" method="post" id="count3">
+                                                                                                                                           <input type="submit" value="Get count">
+                                                                                                                                          </form>
+                                                                                                                                        </div>
+
+
+
+  </body>
+</html>
